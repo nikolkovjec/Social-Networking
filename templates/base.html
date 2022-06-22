@@ -18,12 +18,15 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bower_components/ngDialog/css/ngDialog-theme-default.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'bower_components/snackbarjs/dist/snackbar.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/social.css' %}" />
-    {% endcompress %}
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons" />
+
+  {% endcompress %}
 
   </head>
 
   <body>
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController as vm">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#we-are-borg-navbar">
@@ -40,7 +43,7 @@
             {% if user.is_authenticated %}
             <li><a href="/+{{ user.username }}">+{{ user.username }}</a></li>
             <li><a href="/+{{ user.username }}/settings">Settings</a></li>
-            <li><a href="javascript:void(0)">Logout</a></li>
+            <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
             {% else %}
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
@@ -72,7 +75,29 @@
 
     <script type="text/javascript" src="{% static 'js/social.routes.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/social.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/layout/layout.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/layout/controllers/index.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/layout/controllers/navbar.controller.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/users/users.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/users/controllers/user.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/users/services/user.service.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/auth/auth.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/auth/controllers/login.auth.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/auth/controllers/register.auth.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/auth/services/auth.service.js' %}"></script>
     
+    <script type="text/javascript" src="{% static 'js/posts/posts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/posts/controllers/posts.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/posts/controllers/post.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/posts/controllers/new-post.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/posts/services/posts.service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/posts/services/post.service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/posts/directives/post.directive.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/posts/directives/posts.directive.js' %}"></script>
+
     {% endcompress %}
     
   </body>
