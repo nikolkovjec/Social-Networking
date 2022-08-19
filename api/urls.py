@@ -2,15 +2,14 @@ from django.conf.urls import url, include
 
 from rest_framework import routers
 from .views import (
-    UserViewSet, PostViewSet, CommentViewSet, MyPostsList,
+    UserViewSet, PostViewSet, MyPostsList,
     OtherPostsList, MyCommentsList, OtherCommentsList,
-    CommentOnPostViewSet, LoginView, LogoutView
+    CommentOnPostViewSet, LoginView, LogoutView, RegisterView
     )
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'posts', PostViewSet)
-router.register(r'comments', CommentViewSet)
 
 urlpatterns = [
     url(r'', include(router.urls)),
@@ -33,5 +32,6 @@ urlpatterns = [
 
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^register/$', RegisterView.as_view(), name='logout'),
     ]
 
